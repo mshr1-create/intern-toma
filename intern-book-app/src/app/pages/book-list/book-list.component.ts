@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { Book } from '../../types/book';
 
 @Component({
   standalone: true,
@@ -32,12 +33,4 @@ export class BookListComponent implements OnInit {
     this.books = this.books.filter(book => book.id !== bookId);
   }
 
-}
-
-// 書籍データを表すインターフェース
-export interface Book {
-  id: number;
-  title: string;
-  description: string;
-  rating: number;
 }
