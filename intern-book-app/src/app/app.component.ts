@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BookRegisterComponent } from './pages/book-resister/book-register.component';
 import { BookListComponent } from './pages/book-list/book-list.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 @Component({
   standalone: true,
@@ -17,7 +18,8 @@ import { BookListComponent } from './pages/book-list/book-list.component';
     MatIconModule,
     MatToolbarModule,
     BookRegisterComponent,
-    BookListComponent
+    BookListComponent,
+    ToolbarComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
