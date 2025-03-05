@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { Book } from '../../types/book';
+import { BookCardComponent } from '../../components/book-card/book-card.component';
 
 @Component({
   standalone: true,
@@ -10,12 +11,16 @@ import { Book } from '../../types/book';
   imports: [
     CommonModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    BookCardComponent
   ],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.css'
 })
 export class BookListComponent implements OnInit {
+handleDelete($event: number) {
+  throw new Error('Method not implemented.');
+}
   books: Book[] = []; // 書籍データを格納する配列
 
   constructor() { }

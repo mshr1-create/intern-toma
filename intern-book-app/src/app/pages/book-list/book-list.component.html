@@ -1,24 +1,9 @@
 <div class="book-list">
-    <mat-card
-        class="book-list-card"
+    <app-book-card
         *ngFor="let book of books"
-    >
-        <mat-card-title>
-            {{book.title}}
-        </mat-card-title>
-        <mat-card-content>
-            <p>{{book.description}}</p>
-            <p>評価: {{book.rating}}点</p>
-        </mat-card-content>
-
-        <mat-card-actions style="justify-content: flex-end;">
-            <button
-                mat-raised-button
-                color="warn"
-                (click)="onDeleteBook(book.id)"
-            >
-                削除
-            </button>
-        </mat-card-actions>
-    </mat-card>
+        [book]="book"
+        (deleteRequest)="handleDelete($event)">
+    >        
+    
+    </app-book-card>
 </div>
