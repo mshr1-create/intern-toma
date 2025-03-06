@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class BookService {
-  // 書籍データを格納する BehaviorSubject
+  // 書籍データを格納する BehaviorSubject(クラス内部のみでの使用のためprivateを使用)
   private booksSubject = new BehaviorSubject<Book[]>([]);
   books$ = this.booksSubject.asObservable();
 

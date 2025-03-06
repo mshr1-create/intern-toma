@@ -27,7 +27,7 @@ export class BookRegisterComponent {
 
   constructor(private bookService: BookService) {}
   
-  onAddBook(): void {
+  addNewBook(): void {
     // 新しい書籍情報を定義
     const newBook: Book = {
       id: Date.now(), // 現在のタイムスタンプをIDとして使用
