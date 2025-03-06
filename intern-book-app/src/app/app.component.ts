@@ -4,7 +4,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { BookRegisterComponent } from './pages/book-resister/book-register.component';
+import { BookRegisterComponent } from './pages/book-register/book-register.component';
 import { BookListComponent } from './pages/book-list/book-list.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
