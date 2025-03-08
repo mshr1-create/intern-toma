@@ -2,7 +2,7 @@
     <app-book-card
         *ngFor="let book of books"
         [book]="book"
-        (deleteRequest)="handleDelete($event)">
+        (deleteRequest)="onDeleteBook($event)">
     >        
     
     </app-book-card>

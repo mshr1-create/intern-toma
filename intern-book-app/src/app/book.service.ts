@@ -24,4 +24,9 @@ export class BookService {
     const currentBooks = this.booksSubject.getValue();
     this.booksSubject.next([...currentBooks, book]);
   }
+
+  deleteBook(bookId: number): void {
+    const currentBooks = this.booksSubject.getValue();
+    this.booksSubject.next(currentBooks.filter(b => b.id !== bookId));
+  }
 }

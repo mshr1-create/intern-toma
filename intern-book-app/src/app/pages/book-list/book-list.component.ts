@@ -33,7 +33,7 @@ handleDelete($event: number) {
 
   onDeleteBook(bookId: number): void {
     // 指定したIDの書籍を削除
-    this.books = this.books.filter(book => book.id !== bookId);
+    this.bookService.deleteBook(bookId);
   }
 
 }
