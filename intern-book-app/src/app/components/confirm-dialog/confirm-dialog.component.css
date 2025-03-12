@@ -9,3 +9,8 @@ mat-dialog-actions{
     justify-content: center;
     margin-bottom: 3px;
 }
+
+.delete-button {
+    background-color: rgb(221, 0, 0);
+    color: white;
+}
