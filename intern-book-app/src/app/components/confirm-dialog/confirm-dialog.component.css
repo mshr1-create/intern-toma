@@ -1,0 +1,16 @@
+:host{
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+mat-dialog-actions{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3px;
+}
+
+.delete-button {
+    background-color: rgb(221, 0, 0);
+    color: white;
+}

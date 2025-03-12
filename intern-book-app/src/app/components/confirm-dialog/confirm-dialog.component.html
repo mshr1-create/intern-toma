@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>この投稿を削除しますか？</h2>
+<mat-dialog-content>
+    削除した場合、この操作を取り消すことはできません。
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <!-- キャンセルボタンをクリックした場合、ダイアログを閉じる。返り値はなし。 -->
+    <button mat-button [mat-dialog-close]>キャンセル</button>
+
+    <!-- 削除ボタンをクリックした場合、削除処理を実行する。 -->
+    <button mat-button class="delete-button" [mat-dialog-close]="true">削除</button>
+</mat-dialog-actions>
+
