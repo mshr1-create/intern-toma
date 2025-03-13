@@ -1,9 +1,12 @@
 <div class="book-list">
-    <app-book-card
+    <div *ngIf="books.length > 0; else noData">
+        <app-book-card
         *ngFor="let book of books"
         [book]="book"
-        (deleteRequest)="onDeleteBook($event)">
-    >        
-    
-    </app-book-card>
+        (deleteRequest)="onDeleteBook($event)">        
+        </app-book-card>
+    </div>
+    <ng-template #noData>
+        <p>データがありません</p>
+    </ng-template>
 </div>
