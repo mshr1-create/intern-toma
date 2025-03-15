@@ -7,6 +7,7 @@ import { BookCardComponent } from '../../components/book-card/book-card.componen
 import { BookService } from '../../book.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
+import { MessageService } from '../../message.service';
 
 @Component({
   standalone: true,
@@ -18,7 +19,7 @@ import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-
     BookCardComponent,
   ],
   templateUrl: './book-list.component.html',
-  styleUrl: './book-list.component.css'
+  styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
 handleDelete($event: number) {
@@ -29,7 +30,8 @@ handleDelete($event: number) {
   // BookService, MatDialogを注入
   constructor(
     private bookService: BookService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private messageService: MessageService
   ){ }
 
   ngOnInit(): void {
@@ -47,6 +49,8 @@ handleDelete($event: number) {
       if(result) {
         // 指定したIDの書籍を削除
         this.bookService.deleteBook(bookId);
+        // 操作ログを追加
+        this.messageService.add(`id:${bookId}の書籍が削除されました`);
       }
     });
   }

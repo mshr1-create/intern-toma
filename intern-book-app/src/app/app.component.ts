@@ -7,20 +7,22 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BookRegisterComponent } from './pages/book-register/book-register.component';
 import { BookListComponent } from './pages/book-list/book-list.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { MessageComponent } from "./components/message/message.component";
 
 @Component({
   standalone: true,
   selector: 'app-root',
   imports: [
-    RouterOutlet, 
-    MatSlideToggleModule, 
+    RouterOutlet,
+    MatSlideToggleModule,
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
     BookRegisterComponent,
     BookListComponent,
-    ToolbarComponent
-  ],
+    ToolbarComponent,
+    MessageComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
