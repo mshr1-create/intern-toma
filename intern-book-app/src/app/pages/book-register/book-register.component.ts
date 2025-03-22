@@ -32,6 +32,7 @@ export class BookRegisterComponent {
   addNewBook(): void {
     // 新しい書籍情報を定義
     const newBook: Book = {
+      id: 0,
       title: this.bookTitle,
       description: this.bookDescription,
       rating: this.bookRating ?? 0

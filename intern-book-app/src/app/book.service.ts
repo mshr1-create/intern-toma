@@ -8,10 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class BookService {
   // 書籍データを格納する BehaviorSubject(クラス内部のみでの使用のためprivateを使用)
   private booksSubject = new BehaviorSubject<Book[]>([]);
-  books$ = this.booksSubject.asObservable();
-
-  // 次に使うIDを管理するプロパティ
-  private nextId = 3;
+  books$ = this.booksSubject.asObservable();  
 
   constructor() {
     // 仮の書籍データ
@@ -24,13 +21,14 @@ export class BookService {
 
   
   addBook(book: Book): void {
-    // 1. 現在の配列を取得
+    // 現在の配列を取得
     const currentBooks = this.booksSubject.getValue();
     
-    // 2. 次のIDを割り当ててから、nextIdをインクリメント
-    book.id = this.nextId++;
-
-    // 3. 新しい書籍を含んだ配列を作り、BehaviorSubjectにセット
+    // 現在の書籍データから最大のIDを取得し、空の場合は1をセット
+    const newId = currentBooks.length > 0 ? Math.max(...currentBooks.map(b => b.id)) + 1 : 1;
+    book.id = newId;
+    
+    // 新しい書籍を含んだ配列を作り、BehaviorSubjectにセット
     this.booksSubject.next([...currentBooks, book]);
   }
 
