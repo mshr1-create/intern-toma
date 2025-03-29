@@ -36,4 +36,14 @@ export class BookService {
     const currentBooks = this.booksSubject.getValue();
     this.booksSubject.next(currentBooks.filter(b => b.id !== bookId));
   }
+
+  // 編集機能のメソッド
+  updateBook(updateBook: Book): void {
+    const currentBooks = this.booksSubject.getValue();
+    // idが一致する書籍をupdateBookで置き換える
+    const newBooks = currentBooks.map(book => 
+      book.id === updateBook.id ? updateBook : book
+    );
+    this.booksSubject.next(newBooks);
+  }
 }

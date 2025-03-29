@@ -40,7 +40,7 @@ export class BookRegisterComponent {
 
     this.bookService.addBook(newBook);
     // 操作ログを追加
-    this.messageService.add(`id:${newBook.id}書籍が追加されました`);
+    this.messageService.add(`id:${newBook.id}の「${newBook.title}」が追加されました`);
 
 
     // 入力フォームをリセット
