@@ -4,6 +4,59 @@
     max-width: 1080px;
 }
 
+.edit-form {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px auto;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.edit-form h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.edit-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.edit-form input[type="text"],
+.edit-form input[type="number"],
+.edit-form textarea {
+    width: 95%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.edit-form textarea {
+    height: 100px;
+}
+
+.edit-form button {
+    margin-right: 8px;
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-form button:first-of-type {
+    background-color: #1976d2;
+    color: white;
+    border-radius: 4px;
+}  
+
+.edit-form button:last-of-type {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
 
 
 
