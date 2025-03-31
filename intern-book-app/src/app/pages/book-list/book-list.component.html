@@ -3,10 +3,30 @@
         <app-book-card
         *ngFor="let book of books"
         [book]="book"
-        (deleteRequest)="onDeleteBook($event)">        
-        </app-book-card>
+        (deleteRequest)="onDeleteBook($event)"
+        (editRequest)="onEditBook($event)"
+        ></app-book-card>
     </div>
     <ng-template #noData>
         <p>データがありません</p>
     </ng-template>
+</div>
+
+<!-- 簡易的な編集フォーム -->
+ <div *ngIf="editingBook" class="edit-form">
+    <h3>書籍編集 (id:{{editingBook!.id}})</h3>
+    <label>タイトル:
+        <input [(ngModel)]="editingBook!.title"/>
+    </label>
+    <br />
+    <label>あらすじ:
+        <textarea [(ngModel)]="editingBook!.description"></textarea>
+    </label>
+    <br />
+    <label>評価点:
+        <input type="number" [(ngModel)]="editingBook!.rating"/>
+    </label>
+    <br />
+    <button (click)="saveEdit()">保存</button>
+    <button (click)="cancelEdit()">キャンセル</button>
 </div>

@@ -8,6 +8,7 @@ import { BookService } from '../../book.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 import { MessageService } from '../../message.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
@@ -17,6 +18,7 @@ import { MessageService } from '../../message.service';
     MatCardModule,
     MatButtonModule,
     BookCardComponent,
+    FormsModule
   ],
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
@@ -26,6 +28,7 @@ handleDelete($event: number) {
   throw new Error('Method not implemented.');
 }
   books: Book[] = []; // 書籍データを格納する配列
+  editingBook: Book | null = null; // 編集する書籍データを格納
 
   // BookService, MatDialogを注入
   constructor(
@@ -47,11 +50,39 @@ handleDelete($event: number) {
     // 2. ダイアログの結果を受け取る
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
+        // 削除対象の書籍を取得
+        const deletedBook = this.books.find(book => book.id === bookId);
+
         // 指定したIDの書籍を削除
         this.bookService.deleteBook(bookId);
         // 操作ログを追加
+        if (deletedBook) {
+        this.messageService.add(`id:${bookId}の「${deletedBook.title}」が削除されました`);
+      } else {
         this.messageService.add(`id:${bookId}の書籍が削除されました`);
       }
+      }
     });
+  }
+
+  // 編集ボタンがクリックされたときの処理
+  onEditBook(book: Book): void {
+    this.editingBook = { ...book };
+  }
+
+  // 保存ボタンがクリックされたときの処理
+  saveEdit(): void {
+    if(!this.editingBook) return;
+
+    this.bookService.updateBook(this.editingBook);
+    this.messageService.add(`id:${this.editingBook.id}の「${this.editingBook.title}」が更新されました`);
+  
+    // 編集終了
+    this.editingBook = null;
+  }
+
+  // キャンセルボタンがクリックされたときの処理
+  cancelEdit(): void {
+    this.editingBook = null;
   }
 }

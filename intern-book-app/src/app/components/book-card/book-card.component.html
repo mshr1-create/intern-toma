@@ -7,7 +7,10 @@
         <p>評価: {{book.rating}}点</p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-raised-button color="warn"
+        <button mat-raised-button color="primary" class="edit-button"
+            (click)="handleEdit()">編集
+        </button>
+        <button mat-raised-button color="warn" class="delete-button"
             (click)="handleDelete()">削除
         </button>
     </mat-card-actions>
