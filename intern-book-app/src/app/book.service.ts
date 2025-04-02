@@ -19,6 +19,11 @@ export class BookService {
     this.booksSubject.next(initialBooks);
   }
 
+  // 現在の書籍リストを返すメソッド
+  getBooks(): Book[] {
+    return this.booksSubject.getValue();
+  }
+
   
   addBook(book: Book): void {
     // 現在の配列を取得

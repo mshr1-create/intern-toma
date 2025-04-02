@@ -29,6 +29,7 @@ handleDelete($event: number) {
 }
   books: Book[] = []; // 書籍データを格納する配列
   editingBook: Book | null = null; // 編集する書籍データを格納
+  originalBooks: Book[] = []; // 編集前の書籍データを格納
 
   // BookService, MatDialogを注入
   constructor(
@@ -38,7 +39,21 @@ handleDelete($event: number) {
   ){ }
 
   ngOnInit(): void {
-    this.bookService.books$.subscribe(books => this.books = books)
+    this.bookService.books$.subscribe(books => {
+      this.books = books;
+      this.originalBooks = [...books];
+    });
+
+  }
+
+  // 評価点の高い順に並び替える
+  sortByRating(): void{
+    this.books = this.books.sort((a, b) => b.rating - a.rating);
+  }
+
+  // 元の順序に戻す
+  resetOrder(): void {
+    this.books = [...this.originalBooks];
   }
 
   onDeleteBook(bookId: number): void {

@@ -1,3 +1,11 @@
+<div class="sort-reset-container">
+    <!-- 並び替えボタンを配置 -->
+    <button (click)="sortByRating()" class="sort-button">評価点が高い順に並べ替え ↕︎</button>
+    <!-- 元に戻すボタン -->
+    <button (click)="resetOrder()" class="reset-button">元に戻す</button>    
+</div>
+
+
 <div class="book-list">
     <div *ngIf="books.length > 0; else noData">
         <app-book-card
