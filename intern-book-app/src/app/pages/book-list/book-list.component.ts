@@ -46,6 +46,9 @@ handleDelete($event: number) {
 
   }
 
+  isSorted = false; // 並び替え状態を管理するフラグ
+  
+
   // 評価点の高い順に並び替える
   sortByRating(): void{
     this.books = this.books.sort((a, b) => b.rating - a.rating);
@@ -54,6 +57,15 @@ handleDelete($event: number) {
   // 元の順序に戻す
   resetOrder(): void {
     this.books = [...this.originalBooks];
+  }
+
+  toggleSort(): void {
+    if (this.isSorted) {
+      this.resetOrder();
+    } else {
+      this.sortByRating();
+    }
+    this.isSorted = !this.isSorted; // 並び替え状態を更新
   }
 
   onDeleteBook(bookId: number): void {
