@@ -1,3 +1,8 @@
+<div class="sort-reset-container">
+    <!-- 並び替えボタン、元に戻すボタンを配置 -->
+    <button (click)="toggleSort()" class="sort-button"> {{ isSorted ? '元に戻す' : '評価点が高い順に並べ替え ↕︎' }}</button>
+</div>
+
 <div class="book-list">
     <div *ngIf="books.length > 0; else noData">
         <app-book-card
